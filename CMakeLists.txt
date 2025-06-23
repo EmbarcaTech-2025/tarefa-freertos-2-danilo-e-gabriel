@@ -39,7 +39,9 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(SimonSays SimonSays.c )
+add_executable(SimonSays 
+        SimonSays.c
+        include/buzzer/buzzer_modulo.c)
 
 pico_set_program_name(SimonSays "SimonSays")
 pico_set_program_version(SimonSays "0.1")
