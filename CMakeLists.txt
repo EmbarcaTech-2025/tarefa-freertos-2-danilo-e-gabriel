@@ -41,7 +41,8 @@ pico_sdk_init()
 
 add_executable(SimonSays 
         SimonSays.c
-        include/buzzer/buzzer_modulo.c)
+        include/buzzer/buzzer_modulo.c
+        include/joystick/joystick_modulo.c)
 
 pico_set_program_name(SimonSays "SimonSays")
 pico_set_program_version(SimonSays "0.1")
@@ -65,6 +66,7 @@ target_include_directories(SimonSays PRIVATE
 target_link_libraries(SimonSays
         FreeRTOS-Kernel-Heap4
         hardware_pwm
+        hardware_adc
         pico_stdlib
         hardware_clocks
         )

@@ -5,6 +5,7 @@
 #include "hardware/pwm.h"
 #include "hardware/clocks.h"
 #include <stdint.h>
+#include <stdio.h>
 
 #define BUZZER_FREQUENCY 100
 
@@ -19,6 +20,8 @@ void pwm_init_buzzer() {
     pwm_init(slice_num, &config, true);
     // Iniciar o PWM no nível baixo
     pwm_set_gpio_level(BUZZER_PIN, 0);
+
+    printf("Buzzer Inicializado corretamente\n");
 }
 
 // Definição de uma função para emitir um beep com duração especificada
