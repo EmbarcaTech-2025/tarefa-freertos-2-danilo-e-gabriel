@@ -70,8 +70,8 @@ void inicializa_matriz_led() {
     printf("Matriz inicializada\n");
 }
 
-void turn_led_color(uint x, uint y, uint8_t r, uint8_t g, uint8_t b)
-{
+// Nova função auxiliar para calcular o índice do LED
+uint calculate_led_index(uint x, uint y) {
     uint index;
     if (y % 2 == 0)
     {
@@ -81,73 +81,72 @@ void turn_led_color(uint x, uint y, uint8_t r, uint8_t g, uint8_t b)
     {
         index = (4 - y) * 5 + x;
     }
+    return index;
+}
+
+// Modifiquei a função para apenas definir a cor na memória, sem escrever.
+void turn_led_color_in_memory(uint x, uint y, uint8_t r, uint8_t g, uint8_t b)
+{
+    uint index = calculate_led_index(x, y);
     npSetLED(index, r, g, b);
-    npWrite();
 }
 
 void reseta_coluna_leds(uint coluna)
 {
     for (int i = 0; i < 5; i++)
     {
-        turn_led_color(i, coluna, 0, 0, 0);
+        turn_led_color_in_memory(i, coluna, 0, 0, 0);
     }
+    npWrite(); // Escreve no LED depois de atualizar a coluna inteira.
 }
 
 void turn_off_all () {
-    // npClear();
-    // npWrite();
-    for (int i = 0; i < 5; i++)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            turn_led_color(i, j, 0, 0, 0);
-        }
-    }
+    npClear();
+    npWrite();
 }
 
+// Funções de cor otimizadas:
 void turn_red() {
-    turn_off_all();
-    turn_led_color(0, 0, 255, 0, 0);
-    turn_led_color(1, 0, 255, 0, 0);
-    turn_led_color(0, 1, 255, 0, 0);
-    turn_led_color(1, 1, 255, 0, 0);
-}
-
-void turn_off_teste() {
-    turn_off_all();
-    turn_led_color(0, 0, 255, 0, 0);
+    npClear(); // Limpa a matriz antes de definir a nova cor
+    turn_led_color_in_memory(0, 0, 255, 0, 0);
+    turn_led_color_in_memory(1, 0, 255, 0, 0);
+    turn_led_color_in_memory(0, 1, 255, 0, 0);
+    turn_led_color_in_memory(1, 1, 255, 0, 0);
+    npWrite(); // Escreve no LED apenas uma vez no final
 }
 
 void turn_green() {
-    turn_off_all();
-    turn_led_color(0, 3, 0, 255, 0);
-    turn_led_color(0, 4, 0, 255, 0);
-    turn_led_color(1, 3, 0, 255, 0);
-    turn_led_color(1, 4, 0, 255, 0);
+    npClear(); // Limpa a matriz antes de definir a nova cor
+    turn_led_color_in_memory(0, 3, 0, 255, 0);
+    turn_led_color_in_memory(0, 4, 0, 255, 0);
+    turn_led_color_in_memory(1, 3, 0, 255, 0);
+    turn_led_color_in_memory(1, 4, 0, 255, 0);
+    npWrite(); // Escreve no LED apenas uma vez no final
 }
 
 void turn_blue() {
-    turn_off_all();
-    turn_led_color(3, 0, 0, 0, 255);
-    turn_led_color(4, 1, 0, 0, 255);
-    turn_led_color(3, 1, 0, 0, 255);
-    turn_led_color(4, 0, 0, 0, 255);
+    npClear(); // Limpa a matriz antes de definir a nova cor
+    turn_led_color_in_memory(3, 0, 0, 0, 255);
+    turn_led_color_in_memory(4, 1, 0, 0, 255);
+    turn_led_color_in_memory(3, 1, 0, 0, 255);
+    turn_led_color_in_memory(4, 0, 0, 0, 255);
+    npWrite(); // Escreve no LED apenas uma vez no final
 }
 
 void turn_white() {
-    turn_off_all();
-    turn_led_color(3, 3, 255, 255, 255);
-    turn_led_color(4, 3, 255, 255, 255);
-    turn_led_color(3, 4, 255, 255, 255);
-    turn_led_color(4, 4, 255, 255, 255);
+    npClear(); // Limpa a matriz antes de definir a nova cor
+    turn_led_color_in_memory(3, 3, 255, 255, 255);
+    turn_led_color_in_memory(4, 3, 255, 255, 255);
+    turn_led_color_in_memory(3, 4, 255, 255, 255);
+    turn_led_color_in_memory(4, 4, 255, 255, 255);
+    npWrite(); // Escreve no LED apenas uma vez no final
 }
 
 void turn_white_zero() {
-    turn_off_all();
-    turn_led_color(3, 3, 0, 0, 0);
-    turn_led_color(4, 3, 0, 0, 0);
-    turn_led_color(3, 4, 0, 0, 0);
-    turn_led_color(4, 4, 0, 0, 0);
+    npClear(); // Limpa a matriz antes de definir a nova cor
+    turn_led_color_in_memory(3, 3, 0, 0, 0);
+    turn_led_color_in_memory(4, 3, 0, 0, 0);
+    turn_led_color_in_memory(3, 4, 0, 0, 0);
+    turn_led_color_in_memory(4, 4, 0, 0, 0);
+    npWrite(); // Escreve no LED apenas uma vez no final
 }
-
-

@@ -18,7 +18,7 @@ enum cores {
     ZERO
 };
 
-int sequencia_fases[] = {1,3,0,0,0,1,2,3,0,1};
+int sequencia_fases[] = {0,3,0,1,0,1,2,3,0,1};
 volatile int fase_atual = 2;
 
 void tarefa1(void *pvParameters) {
@@ -54,11 +54,12 @@ void tarefa1(void *pvParameters) {
 // }
 
 void play_sequencia() {
-
+    printf("Iniciando a reprodução da sequência...\n");
+    // Este loop irá percorrer a sequência de cores até a fase atual do jogo.
     for (int i = 0; i <= fase_atual; i++) {
-        printf("Inicio: %d\n", i);
-        printf("Valor de i: %d\n", i);
+        printf("Mostrando cor da fase %d: %d\n", i, sequencia_fases[i]);
         
+        // Use um switch-case para acender o LED da cor correta.
         switch (sequencia_fases[i]) {
             case VERMELHO:
                 turn_red();
@@ -73,16 +74,18 @@ void play_sequencia() {
                 turn_white();
                 break;
             default:
-                // Opcional: lidar com valor inesperado
+                printf("Cor inválida na sequência: %d\n", sequencia_fases[i]);
                 break;
-        }        
+        }
 
-        sleep_ms(2000);
-
-        printf("Passou daqui %d\n", i);
+        sleep_ms(1000); 
+        // Apaga todos os LEDs para que o próximo se destaque.
+        turn_off_all();
+        // Aguarda um curto intervalo entre as cores.
+        sleep_ms(250); 
     }
 
-    printf("Terminou play_sequencia\n");
+    printf("Terminou de reproduzir a sequência. É sua vez!\n");
 }
 
 int main() {
@@ -90,6 +93,7 @@ int main() {
     init_joystick();
     inicializa_matriz_led();
     inicializa_botoes();
+    sleep_ms(2000);
     // xTaskCreate(tarefa2, "Tarefa_mostrar_sequencia", 2048, NULL, 1, NULL);
     play_sequencia();
     sleep_ms(3000);
