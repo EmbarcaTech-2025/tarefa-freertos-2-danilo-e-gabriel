@@ -139,7 +139,9 @@ void tarefa_jogador(void *pvParameters) {
                             while(is_button_a_pressed());
                         }
                     }
-                    free(valores);
+                    
+                    free(valores); 
+                    
                     vTaskDelay(pdMS_TO_TICKS(200));
                 }
             }
