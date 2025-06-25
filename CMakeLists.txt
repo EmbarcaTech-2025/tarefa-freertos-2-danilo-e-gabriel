@@ -42,10 +42,14 @@ pico_sdk_init()
 add_executable(SimonSays 
         SimonSays.c
         include/buzzer/buzzer_modulo.c
-        include/joystick/joystick_modulo.c)
+        include/joystick/joystick_modulo.c
+        include/matriz_led/matriz_led_modulo.c)
 
 pico_set_program_name(SimonSays "SimonSays")
 pico_set_program_version(SimonSays "0.1")
+
+# Generate PIO header
+pico_generate_pio_header(SimonSays ${CMAKE_CURRENT_LIST_DIR}/include/matriz_led/ws2818b.pio)
 
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(SimonSays 0)
@@ -69,6 +73,8 @@ target_link_libraries(SimonSays
         hardware_adc
         pico_stdlib
         hardware_clocks
+        hardware_pio
+        hardware_dma
         )
 
 pico_add_extra_outputs(SimonSays)

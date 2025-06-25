@@ -23,7 +23,7 @@ JoystickStruct* joystick_value () {
     }
 
     adc_select_input(0);
-    Joystick_values->y = adc_read()
+    Joystick_values->y = adc_read();
     adc_select_input(1);
     Joystick_values->x = adc_read();
 
