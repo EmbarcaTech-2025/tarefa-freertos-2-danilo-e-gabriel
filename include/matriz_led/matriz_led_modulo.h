@@ -6,6 +6,8 @@
 void turn_led_color(uint x, uint y, uint8_t r, uint8_t g, uint8_t b);
 void reseta_coluna_leds(uint coluna);
 void inicializa_matriz_led();
+void turn_off_all();
+void turn_white_zero();
 void turn_red();
 void turn_green();
 void turn_blue();

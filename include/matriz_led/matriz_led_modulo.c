@@ -66,6 +66,8 @@ void inicializa_matriz_led() {
     npInit();
     npClear();
     npWrite();
+
+    printf("Matriz inicializada\n");
 }
 
 void turn_led_color(uint x, uint y, uint8_t r, uint8_t g, uint8_t b)
@@ -92,6 +94,8 @@ void reseta_coluna_leds(uint coluna)
 }
 
 void turn_off_all () {
+    // npClear();
+    // npWrite();
     for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 5; j++)
@@ -102,43 +106,48 @@ void turn_off_all () {
 }
 
 void turn_red() {
-    printf("Acendeu vermelho\n");
     turn_off_all();
     turn_led_color(0, 0, 255, 0, 0);
     turn_led_color(1, 0, 255, 0, 0);
     turn_led_color(0, 1, 255, 0, 0);
     turn_led_color(1, 1, 255, 0, 0);
-    npWrite();
+}
+
+void turn_off_teste() {
+    turn_off_all();
+    turn_led_color(0, 0, 255, 0, 0);
 }
 
 void turn_green() {
-    printf("Acendeu Verde\n");
     turn_off_all();
     turn_led_color(0, 3, 0, 255, 0);
     turn_led_color(0, 4, 0, 255, 0);
     turn_led_color(1, 3, 0, 255, 0);
     turn_led_color(1, 4, 0, 255, 0);
-    npWrite();
 }
 
 void turn_blue() {
-    printf("Acendeu Azul\n");
     turn_off_all();
     turn_led_color(3, 0, 0, 0, 255);
     turn_led_color(4, 1, 0, 0, 255);
     turn_led_color(3, 1, 0, 0, 255);
     turn_led_color(4, 0, 0, 0, 255);
-    npWrite();
 }
 
 void turn_white() {
-    printf("Acendeu Branco\n");
     turn_off_all();
     turn_led_color(3, 3, 255, 255, 255);
     turn_led_color(4, 3, 255, 255, 255);
     turn_led_color(3, 4, 255, 255, 255);
     turn_led_color(4, 4, 255, 255, 255);
-    npWrite();
+}
+
+void turn_white_zero() {
+    turn_off_all();
+    turn_led_color(3, 3, 0, 0, 0);
+    turn_led_color(4, 3, 0, 0, 0);
+    turn_led_color(3, 4, 0, 0, 0);
+    turn_led_color(4, 4, 0, 0, 0);
 }
 
 

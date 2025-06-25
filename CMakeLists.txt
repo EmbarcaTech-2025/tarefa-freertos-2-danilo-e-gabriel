@@ -43,7 +43,8 @@ add_executable(SimonSays
         SimonSays.c
         include/buzzer/buzzer_modulo.c
         include/joystick/joystick_modulo.c
-        include/matriz_led/matriz_led_modulo.c)
+        include/matriz_led/matriz_led_modulo.c
+        include/botao/botao_modulo.c)
 
 pico_set_program_name(SimonSays "SimonSays")
 pico_set_program_version(SimonSays "0.1")
