@@ -8,6 +8,6 @@ typedef struct {
 
 int init_joystick();
 JoystickStruct* joystick_value();
+int get_joystick_color(int x_value, int y_value);
 
-
-#endif 
+#endif
