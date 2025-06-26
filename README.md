@@ -17,7 +17,7 @@ _Recriação do clássico jogo da memória usando a placa **BitDogLab (RP2040)**
 ---
 ## ▶ Vídeo de Demonstração
 
-Assista ao protótipo funcionando no YouTube :
+Assista ao protótipo funcionando no YouTube:
 
 [![Veja o demo no YouTube](https://img.youtube.com/vi/aJsjYD89ZdE/0.jpg)](https://youtube.com/shorts/aJsjYD89ZdE?feature=share)
 
