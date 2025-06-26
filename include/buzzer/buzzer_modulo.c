@@ -38,3 +38,10 @@ void play_buzzer(int duration_ms) {
     sleep_ms(100); // Pausa de 100ms
 }
 
+/* Toca um bipe de erro – hoje 800 Hz/400 ms   */
+void play_error_tone(void)                  // ★ NOVA FUNÇÃO
+{
+    play_buzzer(800);   // reutiliza API que já existia
+    sleep_ms(400);      // mantém nota por 400 ms
+    play_buzzer(0);     // silencia
+}

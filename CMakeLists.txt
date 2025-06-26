@@ -44,7 +44,11 @@ add_executable(SimonSays
         include/buzzer/buzzer_modulo.c
         include/joystick/joystick_modulo.c
         include/matriz_led/matriz_led_modulo.c
-        include/botao/botao_modulo.c)
+        include/botao/botao_modulo.c
+        include/rgb_led/rgb_led_modulo.c
+        include/oled/oled_modulo.c
+        include/oled/ssd1306.c
+        include/oled/font.c)
 
 pico_set_program_name(SimonSays "SimonSays")
 pico_set_program_version(SimonSays "0.1")
@@ -76,6 +80,7 @@ target_link_libraries(SimonSays
         hardware_clocks
         hardware_pio
         hardware_dma
+        hardware_i2c
         )
 
 pico_add_extra_outputs(SimonSays)
