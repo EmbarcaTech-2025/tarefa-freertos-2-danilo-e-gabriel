@@ -62,7 +62,7 @@ O objetivo é reproduzir (e aumentar) a sequência de cores que aparece na matri
 - Buzzer toda som quando usuário errar a sequência
 - LED RGB central indica estado  
 - **Blink** de confirmação ao selecionar cor  
-- Mensagens de status no OLED (“COR OK!”, “ERROU!”, “PRESS B TO RESTART”)  
+- Mensagens de status no OLED (“COR OK!”, “ERROU!”, “PRESSIONE B PARA REINICIAR”)  
 - Pausa inicial de 1,5 s antes da 1ª cor  
 - Código 100 % modular + FreeRTOS (2 tasks, semáforos binários)
 
@@ -128,7 +128,6 @@ cp build/SimonSays.uf2 /media/$USER/RPI-RP2
 - [ ] Salvar **high-score** em flash  
 - [ ] Animação “attract mode” na matriz durante inatividade  
 - [ ] Ajuste fino de dead-zone do joystick  
-- [ ] Tradução multilíngue BR/EN via `#define`
 
 ---
 ## 📜 Licença
